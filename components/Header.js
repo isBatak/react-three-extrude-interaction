@@ -5,6 +5,7 @@ import { Camera } from './Camera';
 import { Plane } from './Plane';
 import { PCFSoftShadowMap, REVISION } from 'three';
 import { Controls } from './Controls';
+import { Lights } from './Lights';
 
 console.log('revision', REVISION);
 
@@ -14,19 +15,13 @@ export const Header = () => {
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = PCFSoftShadowMap;
+        gl.gammaInput = true;
+        gl.gammaOutput = true;
       }}
     >
       <Camera />
-      <Controls />
-      <ambientLight intensity={0.5} color="#FFF1FA" />
-      <spotLight
-        intensity={0.6}
-        position={[30, 30, 50]}
-        angle={0.2}
-        penumbra={1}
-        color="#FFF1FA"
-        castShadow
-      />
+      {/* <Controls /> */}
+      <Lights />
       <Glyphs color="#FFFFFF" />
       <Plane color="#FFFFFF" />
       {/* <Thing /> */}

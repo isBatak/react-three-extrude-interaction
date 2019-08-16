@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { FontLoader } from 'three';
 import { useThree } from 'react-three-fiber';
 
@@ -16,6 +16,10 @@ export const Glyphs = ({ size = 1, gap = 0.5, color = '#000000' }) => {
     ['k', 'b', 'n', 'f', 'd', 'e', 'l'],
     ['l', 'k', 'f', 'e', 'b', 'd', 'n'],
   ];
+
+  const [z, setZ] = useState(0);
+
+  console.log(z);
 
   return (
     <group>
@@ -35,11 +39,13 @@ export const Glyphs = ({ size = 1, gap = 0.5, color = '#000000' }) => {
               rowIndex * gap +
               (-lettersGrid.length / 2) * (size + gap)
             }
+            z={z}
             color={color}
             size={size}
             castShadow
             receiveShadow
-            onPointerOver={e => console.log('hover')}
+            onPointerOver={() => setZ(1)}
+            onPointerOut={() => setZ(-0.1)}
           />
         )),
       )}
