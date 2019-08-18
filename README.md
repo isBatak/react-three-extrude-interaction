@@ -5,8 +5,6 @@
 
 ## How to use
 
-### Download manually
-
 Install it and run:
 
 ```bash
