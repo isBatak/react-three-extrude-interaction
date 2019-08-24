@@ -1,13 +1,18 @@
 import { useState, useCallback } from 'react';
 import { FontLoader } from 'three';
-import { useThree } from 'react-three-fiber';
+import { useSpring } from 'react-spring-three';
 
 import { Glyph } from './Glyph';
 
 // font converted with https://gero3.github.io/facetype.js/
 import fontFile from '../resources/fonts/pingfang-sc-aemibold.typeface.json';
 
-export const Glyphs = ({ size = 1, gap = 0.5, color = '#000000' }) => {
+export const Glyphs = ({
+  size = 1,
+  gap = 0.5,
+  color = '#000000',
+  depth = 1,
+}) => {
   const [font] = useState(() => new FontLoader().parse(fontFile));
 
   const lettersGrid = [
@@ -17,9 +22,10 @@ export const Glyphs = ({ size = 1, gap = 0.5, color = '#000000' }) => {
     ['l', 'k', 'f', 'e', 'b', 'd', 'n'],
   ];
 
-  const [z, setZ] = useState(0);
-
-  console.log(z);
+  const [z, setZ] = useState(0.2);
+  const props = useSpring({
+    z: z - depth,
+  });
 
   return (
     <group>
@@ -39,13 +45,14 @@ export const Glyphs = ({ size = 1, gap = 0.5, color = '#000000' }) => {
               rowIndex * gap +
               (-lettersGrid.length / 2) * (size + gap)
             }
-            z={z}
+            z={props.z}
             color={color}
             size={size}
+            depth={depth}
             castShadow
             receiveShadow
-            onPointerOver={() => setZ(1)}
-            onPointerOut={() => setZ(-0.1)}
+            onPointerOver={() => setZ(0.5)}
+            onPointerOut={() => setZ(0.2)}
           />
         )),
       )}

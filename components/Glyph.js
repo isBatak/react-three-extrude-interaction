@@ -1,3 +1,5 @@
+import { animated } from 'react-spring-three';
+
 export const Glyph = ({
   font,
   letter,
@@ -6,10 +8,11 @@ export const Glyph = ({
   z = 0,
   color,
   size,
+  depth,
   ...rest
 }) => {
   return (
-    <mesh
+    <animated.mesh
       position-x={x}
       position-y={y}
       position-z={z}
@@ -23,12 +26,12 @@ export const Glyph = ({
           font.generateShapes(letter, size, 1),
           {
             steps: 1,
-            depth: 0.1,
+            depth,
             bevelEnabled: false,
           },
         ]}
       />
       <meshLambertMaterial attach="material" color={color} />
-    </mesh>
+    </animated.mesh>
   );
 };
