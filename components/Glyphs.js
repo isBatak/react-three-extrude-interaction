@@ -26,7 +26,7 @@ export const Glyphs = ({
       {lettersGrid.map((row, rowIndex) =>
         row.map((letter, letterIndex) => (
           <Glyph
-            key={rowIndex + letter}
+            key={rowIndex + letterIndex + letter}
             font={font}
             letter={letter}
             x={
@@ -37,7 +37,8 @@ export const Glyphs = ({
             y={
               rowIndex * size +
               rowIndex * gap +
-              (-lettersGrid.length / 2) * (size + gap)
+              (-lettersGrid.length / 2) * (size + gap) +
+              (letterIndex % 2 ? 0.4 : 0)
             }
             z={z - depth}
             color={color}

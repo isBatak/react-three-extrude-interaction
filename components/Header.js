@@ -34,10 +34,13 @@ export const Header = () => {
       <Glyphs
         color="#FFFFFF"
         lettersGrid={[
-          ['b', 'd', 'e', 'f', 'k', 'l', 'n'],
-          ['d', 'n', 'f', 'e', 'b', 'l', 'k'],
-          ['k', 'b', 'n', 'f', 'd', 'e', 'l'],
-          ['l', 'k', 'f', 'e', 'b', 'd', 'n'],
+          ['k', 'b', 'n', 'f', 'd', 'e', 'l', 'b'],
+          ['d', 'n', 'f', 'e', 'b', 'l', 'k', 'f'],
+          ['l', 'k', 'f', 'e', 'b', 'd', 'n', 'l'],
+          ['d', 'n', 'f', 'e', 'b', 'l', 'k', 'd'],
+          ['b', 'd', 'e', 'f', 'k', 'l', 'n', 'e'],
+          ['k', 'b', 'n', 'f', 'd', 'e', 'l', 'k'],
+          ['l', 'k', 'f', 'e', 'b', 'd', 'n', 'f'],
         ]}
       />
       <Plane color="#FFFFFF" />
