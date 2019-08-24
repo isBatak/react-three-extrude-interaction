@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { FontLoader } from 'three';
-import { useSpring } from 'react-spring-three';
+// import { useSpring } from 'react-spring-three';
 
 import { Glyph } from './Glyph';
 
@@ -12,20 +12,14 @@ export const Glyphs = ({
   gap = 0.5,
   color = '#000000',
   depth = 1,
+  lettersGrid,
 }) => {
   const [font] = useState(() => new FontLoader().parse(fontFile));
 
-  const lettersGrid = [
-    ['b', 'd', 'e', 'f', 'k', 'l', 'n'],
-    ['d', 'n', 'f', 'e', 'b', 'l', 'k'],
-    ['k', 'b', 'n', 'f', 'd', 'e', 'l'],
-    ['l', 'k', 'f', 'e', 'b', 'd', 'n'],
-  ];
-
   const [z, setZ] = useState(0.2);
-  const props = useSpring({
-    z: z - depth,
-  });
+  // const props = useSpring({
+  //   z: z - depth,
+  // });
 
   return (
     <group>
@@ -45,7 +39,7 @@ export const Glyphs = ({
               rowIndex * gap +
               (-lettersGrid.length / 2) * (size + gap)
             }
-            z={props.z}
+            z={z - depth}
             color={color}
             size={size}
             depth={depth}

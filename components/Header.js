@@ -7,8 +7,6 @@ import { PCFSoftShadowMap, REVISION, Euler } from 'three';
 import { Controls } from './Controls';
 import { Lights } from './Lights';
 
-console.log('revision', REVISION);
-
 export const Header = () => {
   return (
     <Canvas
@@ -33,7 +31,15 @@ export const Header = () => {
       {/* <Camera /> */}
       {/* <Controls /> */}
       {/* <Lights /> */}
-      <Glyphs color="#FFFFFF" />
+      <Glyphs
+        color="#FFFFFF"
+        lettersGrid={[
+          ['b', 'd', 'e', 'f', 'k', 'l', 'n'],
+          ['d', 'n', 'f', 'e', 'b', 'l', 'k'],
+          ['k', 'b', 'n', 'f', 'd', 'e', 'l'],
+          ['l', 'k', 'f', 'e', 'b', 'd', 'n'],
+        ]}
+      />
       <Plane color="#FFFFFF" />
       {/* <Thing /> */}
     </Canvas>

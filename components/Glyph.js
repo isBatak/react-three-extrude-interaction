@@ -1,4 +1,4 @@
-import { animated } from 'react-spring-three';
+// import { animated } from 'react-spring-three';
 
 export const Glyph = ({
   font,
@@ -12,7 +12,7 @@ export const Glyph = ({
   ...rest
 }) => {
   return (
-    <animated.mesh
+    <mesh
       position-x={x}
       position-y={y}
       position-z={z}
@@ -32,6 +32,6 @@ export const Glyph = ({
         ]}
       />
       <meshLambertMaterial attach="material" color={color} />
-    </animated.mesh>
+    </mesh>
   );
 };
