@@ -1,5 +1,5 @@
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/hello-world)
-[Open in CodeSandbox](https://codesandbox.io/s/github/isBatak/react-three-extrude-interaction)
+[![](<https://img.shields.io/badge/Open%20in-CodeSandbox-rgb(64%2C%20169%2C%20243)?style=for-the-badge>)](https://codesandbox.io/s/github/isBatak/react-three-extrude-interaction)
 
 # Extrude interaction
 
