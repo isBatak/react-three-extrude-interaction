@@ -14,9 +14,10 @@ export const Header = () => {
         position: [3, -3, 3],
         rotation: new Euler(0.5, 0.3, -0.4, 'XYZ'),
       }}
-      onCreated={({ gl, camera }) => {
+      onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = PCFSoftShadowMap;
+        gl.gammaFactor = 2.2;
         gl.gammaOutput = true;
       }}
     >
